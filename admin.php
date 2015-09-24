@@ -3,21 +3,24 @@
 <head>
 <title>Basic HTML File</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 <script src="js/Chart.js"></script>
 
 <style type="text/css">
-    .box{
-        display: none;
-    }
+.box {
+	display: none;
+}
 </style>
 
 <script type="text/javascript">
@@ -73,108 +76,126 @@ $(document).ready(function(){
 
 </head>
 <body onload="generateReport();">
-<nav class="navbar navbar-inverse" style=" background-color: #610000">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Endurance</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav"  >
-        <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li><a href="settings.php"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-        <li class="active"><a href="admin.php"><span class="glyphicon glyphicon-user"></span> Admin </a>
-		</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li ><a href="signup.htm"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li ><a href="login.htm"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	<nav class="navbar navbar-inverse" style="background-color: #610000">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Endurance</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>
+							Home</a></li>
+					<li><a href="settings.php"><span class="glyphicon glyphicon-cog"></span>
+							Settings</a></li>
+					<li class="active"><a href="admin.php"><span
+							class="glyphicon glyphicon-user"></span> Admin </a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="signup.htm"><span class="glyphicon glyphicon-user"></span>
+							Sign Up</a></li>
+					<li><a href="login.htm"><span class="glyphicon glyphicon-log-in"></span>
+							Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-<div class="container">
-<div class="row">
-  
-  
+	<div class="container">
+		<div class="row">
 
-<div class="col-sm-2" style="background-color:lavenderblush;">
-<ul class="nav nav-pills nav-stacked">
-  <li><a href="admin.htm" style= "color:#610000"><span class="glyphicon glyphicon-user"></span> Sales</a></li>
-  <li><a href="Profit.htm"><span class="glyphicon glyphicon-plus"></span> Profit</a></li>
-  <li><a href="admin_tax.htm"><span class="glyphicon glyphicon-list-alt"></span> Tax</a></li>
-  <li><a href="users.htm"><span class="glyphicon glyphicon-user"></span> Users</a></li>
-  <li><a href="Items.htm"><span class="glyphicon glyphicon-th"></span> Items</a></li>
-  <li><a href="Categories.htm"><span class="gglyphicon glyphicon-list"></span> Categories</a></li>
-</ul>
-</div>
-	
-	<div class="col-sm-10">
-<div class="container">
-</br>
-  <form role="form">
-    <label class="radio-inline">
-      <input type="radio"  name="colorRadio" value="daterange">By Date Range
-    </label>
-    <label class="radio-inline">
-      <input type="radio"  name="colorRadio" value="6months">6 Months
-    </label>
-	    <label class="radio-inline">
-      <input type="radio"  name="colorRadio" value="lastmonth">Last Month
-    </label>
-    <label class="radio-inline">
-      <input type="radio" name="colorRadio" value = "pastweek">Past week 
-    </label>
-  </form>
-	  <br/>
-<div class = "daterange box">
-	<form  role="form">
-	<div class="form-group">
-		<label for="datefrom">From:</label>
-  		<input type="date" id=dateinputstart name="datefrom">
-  
-  		<label for="dateto">To:</label>
-  		<input type="date" id=dateinputend name="dateto">
-  	</div>
-	</form>
-</div>
 
-<div class="6months box">
-	<span>From</span><p id ="from"></p> <span>To</span><p id ="to"> To </p>
-</div>
-<div class ="lastmonth box">
-	<span>From</span><p id ="lastmonthfrom"></p> <span>To</span><p id ="lastmonthto"> To </p>
-</div>
-<div class ="pastweek box">
-	<span>From</span><p id ="lastweekfrom"></p> <span>To</span><p id ="lastweekto"> To </p>
-</div>
 
-<!-- Charts are displayed here  -->
-<div id="canvas-holder">
-	<canvas id="canvas" height="400" width="350"></canvas>
-</div>
-	
- <form class="form-horizontal" role="form">
-    <div class="form-group">        
-      <div class="col-sm-6">
-        <button type="button" class="btn btn-default col-sm-offset-2"> <span class="glyphicon glyphicon-th-list"></span> View Table</button>
-		<button type="button" class="btn btn-default col-sm-offset-1"> <span class="glyphicon glyphicon-print"></span> Print</button>
-      </div>
-    </div>
- </form> 
+			<div class="col-sm-2" style="background-color: lavenderblush;">
+				<ul class="nav nav-pills nav-stacked">
+					<li><a href="admin.htm" style="color: #610000"><span
+							class="glyphicon glyphicon-user"></span> Sales</a></li>
+					<li><a href="Profit.htm"><span class="glyphicon glyphicon-plus"></span>
+							Profit</a></li>
+					<li><a href="admin_tax.htm"><span
+							class="glyphicon glyphicon-list-alt"></span> Tax</a></li>
+					<li><a href="users.htm"><span class="glyphicon glyphicon-user"></span>
+							Users</a></li>
+					<li><a href="Items.htm"><span class="glyphicon glyphicon-th"></span>
+							Items</a></li>
+					<li><a href="Categories.htm"><span
+							class="gglyphicon glyphicon-list"></span> Categories</a></li>
+				</ul>
+			</div>
 
-</div>
-</div>
-</div>
+			<div class="col-sm-10">
+				<div class="container">
+					</br>
+					<form role="form">
+						<label class="radio-inline"> <input type="radio" name="colorRadio"
+							value="daterange">By Date Range
+						</label> <label class="radio-inline"> <input type="radio"
+							name="colorRadio" value="6months">6 Months
+						</label> <label class="radio-inline"> <input type="radio"
+							name="colorRadio" value="lastmonth">Last Month
+						</label> <label class="radio-inline"> <input type="radio"
+							name="colorRadio" value="pastweek">Past week
+						</label>
+					</form>
+					<br />
+					<div class="daterange box">
+						<form role="form">
+							<div class="form-group">
+								<label for="datefrom">From:</label> <input type="date"
+									id=dateinputstart name="datefrom"> <label for="dateto">To:</label>
+								<input type="date" id=dateinputend name="dateto">
+							</div>
+						</form>
+					</div>
 
-<!--  <div> <input type="date" id=dateinputstart value="2014-09-11" ></div>
+					<div class="6months box">
+						<span>From</span>
+						<p id="from"></p>
+						<span>To</span>
+						<p id="to">To</p>
+					</div>
+					<div class="lastmonth box">
+						<span>From</span>
+						<p id="lastmonthfrom"></p>
+						<span>To</span>
+						<p id="lastmonthto">To</p>
+					</div>
+					<div class="pastweek box">
+						<span>From</span>
+						<p id="lastweekfrom"></p>
+						<span>To</span>
+						<p id="lastweekto">To</p>
+					</div>
+
+					<!-- Charts are displayed here  -->
+					<div id="canvas-holder">
+						<canvas id="canvas" height="400" width="350"></canvas>
+					</div>
+
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<div class="col-sm-6">
+								<button type="button" class="btn btn-default col-sm-offset-2">
+									<span class="glyphicon glyphicon-th-list"></span> View Table
+								</button>
+								<button type="button" class="btn btn-default col-sm-offset-1">
+									<span class="glyphicon glyphicon-print"></span> Print
+								</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<!--  <div> <input type="date" id=dateinputstart value="2014-09-11" ></div>
 <div> <input type="date" id=dateinputend value="2015-09-11" ></div> -->
-<script>
+		<script>
 	var monthNames = ["January", "February", "March", "April", "May", "June",
                   "July", "August", "September", "October", "November", "December"
                 ];
@@ -344,5 +365,6 @@ $(document).ready(function(){
 		}
 		
 	</script>
+
 </body>
-</html>                                		
+</html>
