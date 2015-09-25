@@ -4,9 +4,16 @@ if (session_status () == PHP_SESSION_NONE) {
 	session_start ();
 }
 
+include_once './osutilities.php';
 include "./pdo.php";
 $db_file = "./restaurant.sqlite3";
 PDO_Connect ( "sqlite:$db_file" );
+
+$operatingSystem = operating_system_detection ();
+
+if( strpos($operatingSystem, "Linux") ) {
+	include_once './password.php';
+}
 
 if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 	

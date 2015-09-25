@@ -15,7 +15,7 @@
  function getTaxPercentageFromDatabase(){
 	 $.ajax({
 			type: 'POST',
-			url: 'getTaxFRomDatabase.php',
+			url: 'getTaxFromDatabase.php',
 			data: { "action" : "nothing"},
 			
 		}).done( function( data ) {
@@ -121,6 +121,7 @@
   
   function displayShoppingCart(){
 	  getTaxPercentageFromDatabase();
+	  
       var orderedProductsTblBody=document.getElementById("orderedProductsTblBody");
       //ensure we delete all previously added rows from ordered products table
       var tableRowCount = orderedProductsTblBody.rows.length;
@@ -151,10 +152,12 @@
           var cellPrice = row.insertCell(2);
           var cellSubTotal = row.insertCell(3);
           
-          cellPrice.align="right";
+          cellPrice.align="center";
           //fill cells with values from current product object of our array
           cellName.innerHTML = shoppingCart[product].Name;
-          cellDescription.innerHTML = shoppingCart[product].Qty;
+          cellDescription.innerHTML =  '<input type="number" min="0" style="background-color:cyan; width:3em" value="'+ shoppingCart[product].Qty + '"> ' ;//shoppingCart[product].Qty ;
+          //cellDescription.value = shoppingCart[product].Qty;
+          
           cellPrice.innerHTML = shoppingCart[product].Price;
           var price = parseInt(shoppingCart[product].Price) * parseInt(shoppingCart[product].Qty);
           
@@ -168,10 +171,43 @@
            //alert(Total);
       }
      showTaxes();
+     onchangeNumber();
  	 var shoppingcartJSON = JSON.stringify(shoppingCart);
 	 localStorage.setItem(LOCSTORAGE_CART_ITEMS, shoppingcartJSON);
   }
+  //---------------------------------------------------------------------
+  function onchangeQty() {
+	  document.addEventListener("mouseover input keypress", myFunctionQty);
+  }
   
+  function myFunctionQty(){
+	  alert('hi');
+  }
+  
+ function onchangeNumber() {
+      changeType = 'none';
+      //var input = document.getElementById('number');
+      var input = $("#number");
+      
+      $(':input[type="number"]').on("click input change", function(){
+    	    alert("Change Qty in cart!");
+    	    onChangeQtyInCart();
+    	    
+    	});     
+  }
+ 
+ function onChangeQtyInCart(){
+	  //TODO 
+	  //get the new quantity that is changed.
+	  //get the product whose quantity is changed.
+	  //get shoppingCart object and change the quantity 
+	  //iterate over the objects in shoppingcart object and find the correct item.
+	  //for the correct item, shoppingCart[product].Qty = shoppingCart[product].Qty + newly added quantity;
+	  alert('hi');
+
+  }
+  
+//---------------------------------------------------------------------
   function checkOutOrder(){
 	  var cartJSON = localStorage.getItem(LOCSTORAGE_CART_ITEMS);
 	  var cartItems = JSON.parse(cartJSON);

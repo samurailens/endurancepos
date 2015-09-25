@@ -162,7 +162,7 @@ if (! isset ( $_SESSION ['todaysTransactionID'] )) {
 							<span class="glyphicon glyphicon-shopping-cart"></span> Confirm
 							Order
 						</button> <br />
-					<button class="btn btn-warning	" id="cancelOrderBtn"
+						<button class="btn btn-warning	" id="cancelOrderBtn"
 							style="display: none" type="button" onclick="cancelOrder()">
 							<span class="glyphicon glyphicon-shopping-cart"></span> Cancel
 							Order
