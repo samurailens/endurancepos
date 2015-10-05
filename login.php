@@ -27,15 +27,15 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li><a href="home.htm"><span class="glyphicon glyphicon-home"></span>
+					<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>
 							Home</a></li>
-					<li><a href="settings.htm"><span class="glyphicon glyphicon-cog"></span>
+					<li><a href="settings.php"><span class="glyphicon glyphicon-cog"></span>
 							Settings</a></li>
-					<li><a href="#">Tools</a></li>
-					<li><a href="#">Admin Options</a></li>
+					<!-- <li><a href="#">Tools</a></li> -->
+					<li><a href="#">Admin</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="signup.htm"><span class="glyphicon glyphicon-user"></span>
+					<li><a href="login.php"><span class="glyphicon glyphicon-user"></span>
 							Sign Up</a></li>
 					<li class="active"><a href="#"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>

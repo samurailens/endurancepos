@@ -75,7 +75,7 @@ function saveTransactionToDb() {
 	print ('{}') ;
 }
 function connectToDB() {
-	$hostname = 'localhost';
+	$hostname = 'localhost'; //mysite.com:3306
 	$dsn = 'endurance';
 	$username = "root";//'samurai48';
 	$password = '';//'sachin48';
@@ -93,6 +93,7 @@ function connectToDB() {
 		echo 'Connection failed: ' . $e->getMessage ();
 	}
 }
+
 function saveTransactionToCloud() {
 	// TODO
 	// Very similar to saveTransactionsToDb()/

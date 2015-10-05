@@ -59,11 +59,11 @@ function handleSignup() {
 			"phone" => $phone 
 	) );
 	$_SESSION ['user'] = 0;
-	header ( 'Location: signin.php' );
+	header ( 'Location: login.php' );
 }
 function SignOut() {
 	$_SESSION ['user'] = 0;
-	header ( 'Location: signin.php' );
+	header ( 'Location: login.php' );
 }
 function SignIn() {
 	/*
@@ -78,7 +78,7 @@ function SignIn() {
 	$hash = '';
 	foreach ( $result as $res ) {
 		foreach ( $res as $key => $val ) {
-			// echo $val;
+			 echo $val;
 			$hash = $val;
 		}
 	}
@@ -92,7 +92,7 @@ function SignIn() {
 		$_SESSION ['error'] = 1;
 		$_SESSION ['user'] = 0;
 		// echo "Invalid Password";
-		header ( 'Location: signin.php' );
+		header ( 'Location: login.php' );
 	}
 }
 function dbConnect($db = "") {

@@ -26,6 +26,72 @@ if (! isset ( $_SESSION ['todaysTransactionID'] )) {
 <!-- Latest compiled JavaScript -->
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script>
+function showResult(str) {
+  if (str.length==0) { 
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
+  }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
+}
+
+function addToCartFromSearch(val){
+	var t = $(val).text();
+	alert(t);
+
+	//TODO
+	// 1. We have the name of the item that user has selected.
+	// 2. Search for the name of the item in all tables - starters / main course / desserts / beverages simultaneously
+	// 3. Add the item from whereever you find it. 
+
+	// JavaScript is asynchronous language . All calls go in independent fashion. They dont wait for previous call to complete.
+	// Example 
+	/*
+		myfunction () {
+			foo();
+			goo();
+			doo();
+			hoo();
+		}
+		
+		in myFunction() , all the 4 methods are called simultaneously . whether foo() completes it's execution or not, goo() will be called.
+		we have to make use of this feature in JS and check in all the tables at one time without delay.
+
+		So, you should write sometime like this 
+
+		myFunctionAddToCart(itemname) {
+			searchAndAddToCartFromStartersTable(itemName);
+			searchAndAddToCartFromMainCourseTable(itemName);
+			searchAndAddToCartFromBeveragesTable(itemName);
+		}
+
+		searchAndAddToCartFromStartersTable(itemName){
+			search in DB using Ajax - like we did for Menu and add it to cart.
+
+			when you search DB, we will get complete row in the table -- 'Mushroom Pepper Fry 120 yes	no' -- this result can be sent to AddToCart() 
+			funtction after little formatting. 
+
+			That way, we will re-use our code and make our functionality work.
+		}
+	*/
+	
+}
+
+</script>
 <style type="css/text">
 
 </style>
@@ -79,13 +145,19 @@ if (! isset ( $_SESSION ['todaysTransactionID'] )) {
 				</div>
 				<br />
 				<div class="input-group">
-					<input type="text" class="form-control"> <span
-						class="input-group-btn">
+					
+					<input type="text" class="form-control" onkeyup="showResult(this.value)">
+				
+					 <span class="input-group-btn">
 						<button class="btn btn-default" type="button">
 							<span class="glyphicon glyphicon-search"></span> Search
 						</button>
 					</span>
+						
+					
 				</div>
+				<!-- SEARCH RESULTS are shown here -->
+					<div id="livesearch"></div>
 				<br />
 				<ul class="nav nav-tabs">
 					<li id="starters" onclick="activateMenu(this);"><a href="#"
