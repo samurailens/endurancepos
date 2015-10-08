@@ -155,7 +155,8 @@
           cellPrice.align="center";
           //fill cells with values from current product object of our array
           cellName.innerHTML = shoppingCart[product].Name;
-          cellDescription.innerHTML =  '<input type="number" min="0" style="background-color:cyan; width:3em" value="'+ shoppingCart[product].Qty + '"> ' ;//shoppingCart[product].Qty ;
+          //alert(product); shoppingCart[product].Name
+          cellDescription.innerHTML =  '<input type="number" name='+ product +' min="0" style="background-color:cyan; width:3em" value="'+ shoppingCart[product].Qty + '"> ' ;//shoppingCart[product].Qty ;
           //cellDescription.value = shoppingCart[product].Qty;
           
           cellPrice.innerHTML = shoppingCart[product].Price;
@@ -177,24 +178,71 @@
   }
   //---------------------------------------------------------------------
   function onchangeQty() {
-	  document.addEventListener("mouseover input keypress", myFunctionQty);
+	 // document.addEventListener("mouseover input keypress", myFunctionQty);
   }
   
   function myFunctionQty(){
-	  alert('hi');
+	  //alert('myFunctionQty');
   }
   
+  var oldvalue = 0;
  function onchangeNumber() {
       changeType = 'none';
       //var input = document.getElementById('number');
-      var input = $("#number");
+      //var input = $("#number").name;
       
+      //alert(input);
+      
+      //shoppingCart[product].Qty 
+      /*
       $(':input[type="number"]').on("click input change", function(){
-    	    alert("Change Qty in cart!");
-    	    onChangeQtyInCart();
+    	    //alert("Change Qty in cart!");
+    	    //onChangeQtyInCart();
     	    
     	});     
+    
+    	$(':input[type="number"]').on("click ", function() {
+    	  //alert("click :: Change Qty in cart!");
+    	  //we should not change anything just because user clickd,
+      });
+      change
+      */
+      
+
+      
+      $(':input[type="number"]').bind(" input keyup", function(e) {
+    	  //alert("input change :: Change Qty in cart!");
+    	  //var name = $("#number").attr("name");
+    	  //alert(name);
+    	  
+    	  var $focused = $(':focus');
+    	  var name = $focused.attr("name");
+    	  alert(name);  	  
+    	  console.log(new Date().toUTCString() + " e " + e.toString() +  $(this).val() + name );
+    	  shoppingCart[name].Qty = $(this).val();
+    	  //Refresh Cart 
+    	  //displayShoppingCart();
+    	  //handleAddToCart(name);
+      });
+      
   }
+ 
+ function containsRegex(a, regex){
+	  for(var i = 0; i < a.length; i++) {
+	    if(a[i].search(regex) > -1){
+	      return i;
+	    }
+	  }
+	  return -1;
+	}
+ function searchStringInArray (str, strArray) {
+	    for (var j=0; j<strArray.length; j++) {
+	    	//alert(strArray[j]);
+	        if (strArray[j].match(str)) return j;
+	    }
+	    return -1;
+	}
+ 
  
  function onChangeQtyInCart(){
 	  //TODO 
@@ -203,7 +251,7 @@
 	  //get shoppingCart object and change the quantity 
 	  //iterate over the objects in shoppingcart object and find the correct item.
 	  //for the correct item, shoppingCart[product].Qty = shoppingCart[product].Qty + newly added quantity;
-	  alert('hi');
+	  alert('onChangeQtyInCart');
 
   }
   
